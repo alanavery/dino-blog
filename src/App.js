@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import './index';
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{props.post.title}</h1>
+      <h3>Written by {props.post.author}</h3>
+      <p>{props.post.body}</p>
+      <h2>Comments:</h2>
+      <p>{props.post.comments[0]}</p>
     </div>
   );
 }

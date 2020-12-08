@@ -4,9 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const post = {
+  title: 'Why Dinosaurs Should Rule the World Again',
+  author: 'Tommy T-Rex',
+  body: 'The reason is simple: because people are runing it.',
+  comments: ['Amen, brother.', 'Dinosaurs would probably ruin it too.', 'Weirdest blog ever.']
+};
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App post={post} />
   </React.StrictMode>,
   document.getElementById('root')
 );
