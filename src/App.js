@@ -1,16 +1,42 @@
 import './App.css';
 import './index';
+import Dino from './Dino';
+import React, { Component } from 'react';
 
-function App(props) {
-  return (
-    <div className="App">
-      <h1>{props.post.title}</h1>
-      <h3>Written by {props.post.author}</h3>
-      <p>{props.post.body}</p>
-      <h2>Comments:</h2>
-      <p>{props.post.comments[0]}</p>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comments: [],
+      newComment: ''
+    };
+  }
+
+  handleClick = (event) => {
+    const currentArray = this.state.comments;
+    currentArray.push(this.state.newComment);
+    this.setState({ comments: currentArray });
+    event.target.previousElementSibling.value = '';
+  };
+
+  handleChange = (event) => {
+    this.setState({ newComment: event.target.value });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Dino
+          title={this.props.post.title}
+          author={this.props.post.author}
+          body={this.props.post.body}
+          comments={this.state.comments}
+          handleClick={this.handleClick}
+          handleChange={this.handleChange}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
